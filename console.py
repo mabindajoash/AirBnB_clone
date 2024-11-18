@@ -113,6 +113,22 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** class doesn't exist **")
 
+        if ".destroy" in line:
+            classname, class_id_1 = line.split(".destroy")
+            class_id = class_id_1.strip('()"')
+            if classname in self.class_list:
+                obj1 = FileStorage()
+                data = obj1.all()
+                for key, value in data.items():
+                    if key == f"{classname}.{class_id}":
+                        del data[key]
+                        break
+                else:
+                    print("** no instance found **")
+            else:
+                print("** class doesn't exist **")
+
+
     def do_show(self, line):
         """print an instance"""
         args = line.split()
