@@ -32,14 +32,15 @@ class FileStorage:
     def save(self):
         """serializes objects to json file"""
         with open(FileStorage.__file_path, 'w', encoding="utf-8") as f:
-            json.dump({key: obj.to_dict() for key, obj in FileStorage.__objects.items()}, f)
+            json.dump({key: obj.to_dict() for key, obj in
+                      FileStorage.__objects.items()}, f)
 
     def reload(self):
         """deserialize Json file"""
         if os.path.exists(FileStorage.__file_path):
             with open(FileStorage.__file_path, 'r', encoding="utf-8") as f:
                 try:
-                    data  =  json.load(f)
+                    data = json.load(f)
                     for key, value in data.items():
                         classname = value['__class__']
                         del value['__class__']
