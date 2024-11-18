@@ -5,7 +5,7 @@ Module containing class Review
 
 
 from models.basemodel import BaseModel
-
+import models
 
 class Review(BaseModel):
    """class Review"""

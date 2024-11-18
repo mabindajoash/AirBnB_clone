@@ -5,7 +5,7 @@ Module containing class Amenity
 
 
 from models.basemodel import BaseModel
-
+import models
 
 class Amenity(BaseModel):
     """class amenity"""

@@ -5,7 +5,7 @@ Module containing class Place
 
 
 from models.basemodel import BaseModel
-
+import models
 
 class Place(BaseModel):
     """class place"""

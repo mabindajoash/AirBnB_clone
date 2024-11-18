@@ -5,7 +5,7 @@ Module containing class City
 
 
 from models.basemodel import BaseModel
-
+import models
 
 class City(BaseModel):
     """class City"""
