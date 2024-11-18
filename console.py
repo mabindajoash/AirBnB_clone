@@ -69,6 +69,21 @@ class HBNBCommand(cmd.Cmd):
             object1.save()
             print(object1.id)
 
+    def default(self, line):
+        """Handles commands in the formart .all()"""
+        classname = None
+        if ".all()" in line:
+            classname = line.split(".all()")[0]
+            if classname in self.class_list:
+                obj1 = FileStorage()
+                data = obj1.all()
+                instance_list = []
+                for instance in data.values():
+                    if instance.__class__.__name__ == classname:
+                        instance_list.append(str(instance))
+                print(instance_list)
+            else:
+                print("** class doesn't exist **")
     def do_show(self, line):
         """print an instance"""
         args = line.split()
