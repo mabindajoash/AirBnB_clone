@@ -97,6 +97,22 @@ class HBNBCommand(cmd.Cmd):
                 print(count)
             else:
                 print("** class doesn't exist **")
+
+        if ".show" in line:
+            classname, class_id_1 = line.split(".show")
+            class_id = class_id_1.strip('()"')
+            if classname in self.class_list:
+                obj1 = FileStorage()
+                data = obj1.all()
+                for key, value in data.items():
+                    if key == f"{classname}.{class_id}":
+                        print(value)
+                        break
+                else:
+                    print("** no instance found **")
+            else:
+                print("** class doesn't exist **")
+
     def do_show(self, line):
         """print an instance"""
         args = line.split()
