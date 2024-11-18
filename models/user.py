@@ -13,3 +13,7 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
+
+    def __init__(self, *args, **args):
+        """class constructor"""
+        super().__init__(*args, **kwargs)
