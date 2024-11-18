@@ -4,7 +4,7 @@ from models.base_model import BaseModel
 import uuid
 
 
-class TestBaseModel(unittest.TestCase):
+class Test_BaseModel(unittest.TestCase):
     """Unit tests for the BaseModel class"""
 
     def test_init_with_kwargs(self):
