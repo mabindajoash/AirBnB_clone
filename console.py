@@ -94,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
         """destroy an instance"""
         args = line.split()
         if len(args) == 0:
-            print("** class name is missing **")
+            print("** class name missing **")
         elif args[0] not in self.class_list:
             print("** class doesn't exist **")
         elif len(args) != 2:
