@@ -5,6 +5,11 @@ Module containing class HBNBCommand
 
 
 from models.user import User
+from models.city import City
+from models.amenity import Amenity
+from models.state import State
+from models.review import Review
+from models.place import Place
 import cmd
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
@@ -12,7 +17,7 @@ from models.engine.file_storage import FileStorage
 
 class HBNBCommand(cmd.Cmd):
     """entry point of the command interpreter"""
-    class_list = ["User", "BaseModel"]
+    class_list = ["User", "BaseModel", "Review", "City", "State", "Amenity", "Place"]
 
     prompt = "(hbnb)"
 
@@ -40,6 +45,26 @@ class HBNBCommand(cmd.Cmd):
             print(f"{object1.id}")
         elif line == "User":
             object1 = User()
+            object1.save()
+            print(object1.id)
+        elif line == "City":
+            object1 = City()
+            object1.save()
+            print(object1.id)
+        elif line == "State":
+            object1 = State()
+            object1.save()
+            print(object1.id)
+        elif line == "Amenity":
+            object1 = Amenity()
+            object1.save()
+            print(object1.id)
+        elif line == "Place":
+            object1 = Place()
+            object1.save()
+            print(object1.id)
+        elif line == "Review":
+            object1 = Review()
             object1.save()
             print(object1.id)
 
@@ -91,7 +116,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, line):
         """print all instances"""
         if len(line) != 0 and line not in self.class_list:
-            print("** class doesn't exist")
+            print("** class doesn't exist **")
         else:
             object1 = FileStorage()
             data = object1.all()

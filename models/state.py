@@ -4,8 +4,8 @@ contains class State inheriting from BaseModel
 """
 
 
-from model.basemodel import BaseModel
-mport models
+from models.base_model import BaseModel
+
 
 class State(BaseModel):
     """class state"""

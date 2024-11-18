@@ -4,7 +4,7 @@ Module containing class City
 """
 
 
-from models.basemodel import BaseModel
+from models.base_model import BaseModel
 import models
 
 class City(BaseModel):
