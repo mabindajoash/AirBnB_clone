@@ -33,7 +33,6 @@ class BaseModel:
             self.updated_at = datetime.now()
             models.storage.new(self)
 
-
     def __str__(self):
         """string rep of an object"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
@@ -52,4 +51,3 @@ class BaseModel:
         dict_copy['created_at'] = created_at
         dict_copy['updated_at'] = updated_at
         return dict_copy
-

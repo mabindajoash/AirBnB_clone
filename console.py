@@ -17,7 +17,8 @@ from models.engine.file_storage import FileStorage
 
 class HBNBCommand(cmd.Cmd):
     """entry point of the command interpreter"""
-    class_list = ["User", "BaseModel", "Review", "City", "State", "Amenity", "Place"]
+    class_list = ["User", "BaseModel", "Review",
+                  "City", "State", "Amenity", "Place"]
 
     prompt = "(hbnb)"
 
@@ -36,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, line):
         """create new instance and save to json file"""
         if not line:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif line not in self.class_list:
             print("** class doesn't exist **")
         elif line == "BaseModel":
@@ -84,7 +85,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in data.items():
                 if key == f"{args[0]}.{args[1]}":
                     found_object = value
-                    break;
+                    break
             if found_object is None:
                 print("** no instance found **")
             else:
@@ -146,18 +147,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
             object1.save()
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
