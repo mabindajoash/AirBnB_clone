@@ -29,7 +29,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(obj.updated_at, datetime)
         self.assertTrue(hasattr(obj, 'id'))
 
-    def test_str(self):
+    def test__str__(self):
         """Test __str__ method"""
         obj = BaseModel()
         string = f"[{obj.__class__.__name__}] ({obj.id}) {obj.__dict__}"
