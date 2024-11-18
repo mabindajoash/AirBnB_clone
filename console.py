@@ -82,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
             data = object1.all()
             found_object = None
             for key, value in data.items():
-                if value.id == f"{args[1]}":
+                if key == f"{args[0]}.{args[1]}":
                     found_object = value
                     break;
             if found_object is None:
