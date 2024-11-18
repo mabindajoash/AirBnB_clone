@@ -130,7 +130,10 @@ class HBNBCommand(cmd.Cmd):
 
         if ".update" in line:
             classname, my_tuple = line.split(".update")
-            my_tuple = my_tuple.replace('"', '').replace('(', '').replace(')', '')
+            my_tuple = (
+                my_tuple.replace('"', '')
+                        .replace('(', '').replace(')', '')
+             )
             args = [arg.strip() for arg in my_tuple.split(",")]
             print(args)
             if len(args) == 3:
