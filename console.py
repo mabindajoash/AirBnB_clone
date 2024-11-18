@@ -108,7 +108,7 @@ class HBNBCommand(cmd.Cmd):
                     found_key = key
                     break
             if found_key is None:
-                print("** no instance found**")
+                print("** no instance found **")
             else:
                 del data[found_key]
                 object1.save()
