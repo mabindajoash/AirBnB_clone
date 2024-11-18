@@ -128,6 +128,29 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** class doesn't exist **")
 
+        if ".update" in line:
+            classname, my_tuple = line.split(".update")
+            my_tuple = my_tuple.replace('"', '').replace('(', '').replace(')', '')
+            args = [arg.strip() for arg in my_tuple.split(",")]
+            print(args)
+            if len(args) == 3:
+                class_id, name, att_value = args
+            class_id.strip('\"')
+            print(class_id)
+            name.strip("\"")
+            att_value.strip("\"")
+            if classname in self.class_list:
+                obj1 = FileStorage()
+                data = obj1.all()
+                for key, value in data.items():
+                    if key == f"{classname}.{class_id}":
+                        setattr(value, name, att_value)
+                        obj1.save()
+                        break
+                else:
+                    print("** no instance found **")
+            else:
+                print("** class doesn't exist **")
 
     def do_show(self, line):
         """print an instance"""
